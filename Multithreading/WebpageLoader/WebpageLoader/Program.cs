@@ -54,27 +54,35 @@ class Program
 
     static void StartSearch(ConcurrentQueue<string> pagesQueue, string keyword, SemaphoreSlim concurrencySemaphore, CancellationToken cancellationToken)
     {
-        concurrencySemaphore.Wait();
-        string currentUrl = null;
+        // only one thread is working instead of MAX_CONCURRENT_TASK
 
-        if (pagesQueue.Count > 0)
+        // at the beginning only one url exists in queue, but StartSerach is called recursively, blocks 6 threads with no work, 6 threads are not released
+        concurrencySemaphore.Wait(); 
+        string currentUrl = null;
+        
+        if (pagesQueue.Count > 0) //no release if queue is empty
         {
+            
+            //do we need new Task here?
             Task.Factory.StartNew(() =>
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 string result = null;
 
+                //why not TryDequeue?
                 if (pagesQueue.TryPeek(out currentUrl) && currentUrl != null)
                 {
                     pagesQueue.TryDequeue(out currentUrl);
+                    //why not async/await here? Task.Result - bad practice
                     result = DownloadWebPage(currentUrl).Result;
                 }
                 return result;
             }, cancellationToken).ContinueWith(task =>
             {
+                //!task.IsFaulted not checked
                 AddInnerLinks(task.Result, pagesQueue);
                 CompletedDownloadPage(task, currentUrl, keyword);
-
+                //thread is not released if the first tasks faulted
                 concurrencySemaphore.Release();
             }, TaskContinuationOptions.NotOnCanceled)
             .ContinueWith(task =>
@@ -86,7 +94,7 @@ class Program
         {
             CustomConsole.WriteLine("Page queue is empty.");
         }
-
+        //There is no need for infinit recursion. It creates deep call stack and can lead to stackoverflow
         StartSearch(pagesQueue, keyword, concurrencySemaphore, cancellationToken);
     }
 
@@ -140,6 +148,8 @@ class Program
                 bool isValidLink = Uri.IsWellFormedUriString(url, UriKind.Absolute);
                 if (isValidLink && queue.All(item => item != url))
                 {
+                    // when new item is added to queue and if there is some free thread, it should start loading new page
+                    // pulse can be added to wakeup threads (Monitor.Wait/Pulse) or you can simply use BlockingCollection - implementation of the Producer-Consumer pattern
                     queue.Enqueue(url);
                 };
             }

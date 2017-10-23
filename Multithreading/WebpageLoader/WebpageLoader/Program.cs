@@ -21,7 +21,8 @@ class Program
         CancellationTokenSource cts = new CancellationTokenSource();
         var cancellationToken = cts.Token;
 
-        using (SemaphoreSlim concurrencySemaphore = new SemaphoreSlim(MAX_CONCURRENT_TASK))
+
+        using (SemaphoreSlim concurrencySemaphore = new SemaphoreSlim(MAX_CONCURRENT_TASK)) // not needed since we create MAX_CONCURRENT_TASK separate tasks
         {
             Console.WriteLine("Enter url or print 'exit' to finish");
 
@@ -30,14 +31,16 @@ class Program
 
             for (int i = 0; i < MAX_CONCURRENT_TASK; i++)
             {
+                // I would hide all logic to check cancelation token inside StartSearch
+                // Task.Run(()=> StartSearch(keyword), cancellationToken);
                 Task.Run(() =>
                 {
+                    // I would run search until IsCancellationRequested. It can be simplified, not neccessary to complete adding, just cancel
                     while (!pagesQueue.IsCompleted)
                     {
                         cancellationToken.ThrowIfCancellationRequested();
                         StartSearch(pagesQueue, keyword, concurrencySemaphore, cancellationToken);
                     }
-
                     cts.Cancel();
                     Console.WriteLine("Search stopped");
 
@@ -53,8 +56,9 @@ class Program
                 }, TaskContinuationOptions.OnlyOnFaulted);
             }
 
-            Task.Run(() =>
-            {
+            // not necessary create another task here, it can be performed in main thread as it was in previous version
+           // Task.Run(() =>
+           // {
                 while (entredString != "exit")
                 {
 
@@ -62,14 +66,15 @@ class Program
 
                     if (isValidLink)
                     {
+                        // the first url is added to queue twice  - first time at line 29: pagesQueue.Add(entredString, cancellationToken);
                         pagesQueue.Add(entredString, cancellationToken);
                     }
                     Console.WriteLine("Enter url or print 'exit' to finish");
                     entredString = Console.ReadLine();
                 }
-                pagesQueue.CompleteAdding();
+                //pagesQueue.CompleteAdding();
                 cts.Cancel();
-            }, cancellationToken).Wait(cancellationToken);
+           // }, cancellationToken).Wait(cancellationToken);
         }
 
         Console.ReadLine();
@@ -81,9 +86,10 @@ class Program
         string currentUrl = null;
         string result = null;
 
-        if (pagesQueue.Count > 0)
+        if (pagesQueue.Count > 0) // if count == 0, but adding is not completed, StartSearch will be called infinitevely.
+            // It's safe to call blockingCollectionQueue.Take() without "if" and if there is no items, thread will wait until some item will be added to queue
         {
-            concurrencySemaphore.Wait();
+            //concurrencySemaphore.Wait(); // semaphore is not needed anymore, StartSearch is working in separate thread since we've already created 5 separate tasks: Task.Run()
             currentUrl = pagesQueue.Take();
 
             try
@@ -105,7 +111,7 @@ class Program
             }
             finally
             {
-                concurrencySemaphore.Release();
+               // concurrencySemaphore.Release();
             }
         }
     }

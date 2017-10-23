@@ -9,126 +9,100 @@ using AngleSharp.Parser.Html;
 
 class Program
 {
-    public const int MAX_QUEUE_LENGTH = 300;
+    public const int MAX_QUEUE_LENGTH = 100;
     public const int MAX_CONCURRENT_TASK = 5;
 
     static void Main()
     {
-        BlockingCollection<string> pagesQueue = new BlockingCollection<string>(100);
+        BlockingCollection<string> pagesQueue = new BlockingCollection<string>(MAX_QUEUE_LENGTH);
 
         Console.WriteLine("Enter key word");
         string keyword = Console.ReadLine();
         CancellationTokenSource cts = new CancellationTokenSource();
         var cancellationToken = cts.Token;
 
+        Console.WriteLine("Enter url or print 'exit' to finish");
+        string entredString = Console.ReadLine();
 
-        using (SemaphoreSlim concurrencySemaphore = new SemaphoreSlim(MAX_CONCURRENT_TASK)) // not needed since we create MAX_CONCURRENT_TASK separate tasks
+        for (int i = 0; i < MAX_CONCURRENT_TASK; i++)
         {
-            Console.WriteLine("Enter url or print 'exit' to finish");
-
-            string entredString = Console.ReadLine();
-            pagesQueue.Add(entredString, cancellationToken);
-
-            for (int i = 0; i < MAX_CONCURRENT_TASK; i++)
+            Task.Run(() =>
             {
-                // I would hide all logic to check cancelation token inside StartSearch
-                // Task.Run(()=> StartSearch(keyword), cancellationToken);
-                Task.Run(() =>
+                while (!cancellationToken.IsCancellationRequested)
                 {
-                    // I would run search until IsCancellationRequested. It can be simplified, not neccessary to complete adding, just cancel
-                    while (!pagesQueue.IsCompleted)
-                    {
-                        cancellationToken.ThrowIfCancellationRequested();
-                        StartSearch(pagesQueue, keyword, concurrencySemaphore, cancellationToken);
-                    }
-                    cts.Cancel();
-                    Console.WriteLine("Search stopped");
-
-                }, cancellationToken).ContinueWith(task =>
-                {
-                    Console.WriteLine("Request was canceled");
-                    Console.ReadLine();
-                }, TaskContinuationOptions.OnlyOnCanceled)
-                .ContinueWith(task =>
-                {
-                    Console.WriteLine("Task was faulted");
-                    Console.ReadLine();
-                }, TaskContinuationOptions.OnlyOnFaulted);
-            }
-
-            // not necessary create another task here, it can be performed in main thread as it was in previous version
-           // Task.Run(() =>
-           // {
-                while (entredString != "exit")
-                {
-
-                    bool isValidLink = Uri.IsWellFormedUriString(entredString, UriKind.Absolute);
-
-                    if (isValidLink)
-                    {
-                        // the first url is added to queue twice  - first time at line 29: pagesQueue.Add(entredString, cancellationToken);
-                        pagesQueue.Add(entredString, cancellationToken);
-                    }
-                    Console.WriteLine("Enter url or print 'exit' to finish");
-                    entredString = Console.ReadLine();
+                    StartSearch(pagesQueue, keyword, cancellationToken);
                 }
-                //pagesQueue.CompleteAdding();
-                cts.Cancel();
-           // }, cancellationToken).Wait(cancellationToken);
+                Console.WriteLine("Search stopped");
+
+            }, cancellationToken);
         }
+
+        while (entredString != "exit")
+        {
+            bool isValidLink = Uri.IsWellFormedUriString(entredString, UriKind.Absolute);
+
+            if (isValidLink && pagesQueue.All(item => item != entredString))
+            {
+                pagesQueue.Add(entredString, cancellationToken);
+            }
+            Console.WriteLine("Enter url or print 'exit' to finish");
+            entredString = Console.ReadLine();
+        }
+        cts.Cancel();
 
         Console.ReadLine();
     }
 
-    static async void StartSearch(BlockingCollection<string> pagesQueue, string keyword, SemaphoreSlim concurrencySemaphore, CancellationToken cancellationToken)
+    static async void StartSearch(BlockingCollection<string> pagesQueue, string keyword, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        string currentUrl = null;
+        string currentUrl = pagesQueue.Take(); ;
         string result = null;
 
-        if (pagesQueue.Count > 0) // if count == 0, but adding is not completed, StartSearch will be called infinitevely.
-            // It's safe to call blockingCollectionQueue.Take() without "if" and if there is no items, thread will wait until some item will be added to queue
+        try
         {
-            //concurrencySemaphore.Wait(); // semaphore is not needed anymore, StartSearch is working in separate thread since we've already created 5 separate tasks: Task.Run()
-            currentUrl = pagesQueue.Take();
-
-            try
+            result = await DownloadWebPage(currentUrl, cancellationToken);
+            if (!cancellationToken.IsCancellationRequested)
             {
-                result = await DownloadWebPage(currentUrl);
                 if (result != null)
                 {
                     AddInnerLinks(result, pagesQueue);
-                    CustomConsole.PrintSearchResults(currentUrl, FindKeyword(result, keyword));
+                    CustomConsole.PrintSearchResults(currentUrl, FindKeyword(result, keyword), cancellationToken);
                 }
                 else
                 {
-                    CustomConsole.WriteLine($"Page loading failed: {currentUrl}");
+                    CustomConsole.WriteLine($"Page loading failed: {currentUrl}", cancellationToken);
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-               // concurrencySemaphore.Release();
-            }
         }
+        catch (OperationCanceledException ex)
+        {
+            Console.WriteLine("cancel print");
+        }
+        catch (Exception ex)
+        {
+            CustomConsole.WriteLine($"{ex.Message}", cancellationToken);
+        }
+
     }
 
-    static async Task<string> DownloadWebPage(string url)
+    static async Task<string> DownloadWebPage(string url, CancellationToken cancellationToken)
     {
+        cancellationToken.ThrowIfCancellationRequested();
+
         string result = null;
         try
         {
             result = await new WebClient().DownloadStringTaskAsync(url);
         }
+        catch (OperationCanceledException ex)
+        {
+            throw ex;
+        }
         catch (Exception ex)
         {
             string exeption = ex.InnerException?.Message ?? ex.Message;
-            CustomConsole.WriteLine($"an error occured: {exeption}");
-
-            throw ex;
+            CustomConsole.WriteLine($"an error occured: {exeption}", cancellationToken);
         }
         return result;
     }
@@ -161,59 +135,70 @@ class Program
     {
         static ConcurrentQueue<string> _logQueue = new ConcurrentQueue<string>();
         static ConcurrentQueue<ResultItem> _reportQueue = new ConcurrentQueue<ResultItem>();
-        const int MAX_BUFFER_LENGTH = 10;
-        public static void WriteLine(string output)
+        private const int MAX_BUFFER_LENGTH = 20;
+        private const int MAX_SEARCH_LENGTH = 20;
+        public static void WriteLine(string output, CancellationToken cancellationToken)
         {
-            _logQueue.Enqueue(output);
-            if (_logQueue.Count > MAX_BUFFER_LENGTH)
+            if (!cancellationToken.IsCancellationRequested)
             {
-                Print(_logQueue.ToList());
-                _logQueue = new ConcurrentQueue<string>();
-            }
-        }
-
-        public static void PrintSearchResults(string output, bool isFound)
-        {
-            _reportQueue.Enqueue(new ResultItem(output, isFound));
-            if (_reportQueue.Count > MAX_BUFFER_LENGTH)
-            {
-                List<string> trueArray = _reportQueue.Where(item => item.IsKeywordFound).Select(item => item.Message).ToList();
-                List<string> falseArray = _reportQueue.Where(item => !item.IsKeywordFound).Select(item => item.Message).ToList();
-
-                Console.WriteLine("Word found in pages:");
-                Print(trueArray);
-                Console.WriteLine("Word not found in pages:");
-                Print(falseArray);
-
-                _reportQueue = new ConcurrentQueue<ResultItem>();
-            }
-        }
-
-        private static void Print(IEnumerable<string> resultArray)
-        {
-            if (!resultArray.Any())
-            {
-                Console.WriteLine("no pages");
-            }
-            else
-            {
-                foreach (string message in resultArray)
+                cancellationToken.ThrowIfCancellationRequested();
+                _logQueue.Enqueue(output);
+                if (_logQueue.Count > MAX_BUFFER_LENGTH)
                 {
-                    Console.WriteLine(message);
+                    Print(_logQueue.ToList());
+                    _logQueue = new ConcurrentQueue<string>();
+                }
+            }
+        }
+
+        public static void PrintSearchResults(string output, bool isFound, CancellationToken cancellationToken)
+        {
+            if (!cancellationToken.IsCancellationRequested)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                _reportQueue.Enqueue(new ResultItem(output, isFound));
+                if (_reportQueue.Count > MAX_SEARCH_LENGTH)
+                {
+                    List<string> trueArray = _reportQueue.Where(item => item.IsKeywordFound).Select(item => item.Message).ToList();
+                    List<string> falseArray = _reportQueue.Where(item => !item.IsKeywordFound).Select(item => item.Message).ToList();
+
+                    Console.WriteLine("Word found in pages:");
+                    Print(trueArray);
+                    Console.WriteLine("Word not found in pages:");
+                    Print(falseArray);
+
+                    _reportQueue = new ConcurrentQueue<ResultItem>();
                 }
             }
 
         }
+
     }
 
-    public class ResultItem
+    private static void Print(IEnumerable<string> resultArray)
     {
-        public ResultItem(string message, bool isFound)
+        if (!resultArray.Any())
         {
-            Message = message;
-            IsKeywordFound = isFound;
+            Console.WriteLine("no pages");
         }
-        public string Message { get; set; }
-        public bool IsKeywordFound { get; set; }
+        else
+        {
+            foreach (string message in resultArray)
+            {
+                Console.WriteLine(message);
+            }
+        }
+
     }
+}
+
+public class ResultItem
+{
+    public ResultItem(string message, bool isFound)
+    {
+        Message = message;
+        IsKeywordFound = isFound;
+    }
+    public string Message { get; set; }
+    public bool IsKeywordFound { get; set; }
 }

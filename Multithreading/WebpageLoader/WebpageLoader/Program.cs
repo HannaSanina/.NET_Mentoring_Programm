@@ -10,11 +10,11 @@ using AngleSharp.Parser.Html;
 class Program
 {
     public const int MAX_QUEUE_LENGTH = 300;
-    public const int MAX_CONCURRENT_TASK = 7;
+    public const int MAX_CONCURRENT_TASK = 5;
 
     static void Main()
     {
-        ConcurrentQueue<string> pagesQueue = new ConcurrentQueue<string>();
+        BlockingCollection<string> pagesQueue = new BlockingCollection<string>(100);
 
         Console.WriteLine("Enter key word");
         string keyword = Console.ReadLine();
@@ -26,76 +26,88 @@ class Program
             Console.WriteLine("Enter url or print 'exit' to finish");
 
             string entredString = Console.ReadLine();
+            pagesQueue.Add(entredString, cancellationToken);
 
-            while (entredString != "exit")
+            for (int i = 0; i < MAX_CONCURRENT_TASK; i++)
             {
-                bool isValidLink = Uri.IsWellFormedUriString(entredString, UriKind.Absolute);
-                if (isValidLink)
+                Task.Run(() =>
                 {
-                    pagesQueue.Enqueue(entredString);
-                    Task.Factory.StartNew(() =>
+                    while (!pagesQueue.IsCompleted)
                     {
                         cancellationToken.ThrowIfCancellationRequested();
                         StartSearch(pagesQueue, keyword, concurrencySemaphore, cancellationToken);
-                    }, cancellationToken);
+                    }
+
+                    cts.Cancel();
+                    Console.WriteLine("Search stopped");
+
+                }, cancellationToken).ContinueWith(task =>
+                {
+                    Console.WriteLine("Request was canceled");
+                    Console.ReadLine();
+                }, TaskContinuationOptions.OnlyOnCanceled)
+                .ContinueWith(task =>
+                {
+                    Console.WriteLine("Task was faulted");
+                    Console.ReadLine();
+                }, TaskContinuationOptions.OnlyOnFaulted);
+            }
+
+            Task.Run(() =>
+            {
+                while (entredString != "exit")
+                {
+
+                    bool isValidLink = Uri.IsWellFormedUriString(entredString, UriKind.Absolute);
+
+                    if (isValidLink)
+                    {
+                        pagesQueue.Add(entredString, cancellationToken);
+                    }
+                    Console.WriteLine("Enter url or print 'exit' to finish");
+                    entredString = Console.ReadLine();
+                }
+                pagesQueue.CompleteAdding();
+                cts.Cancel();
+            }, cancellationToken).Wait(cancellationToken);
+        }
+
+        Console.ReadLine();
+    }
+
+    static async void StartSearch(BlockingCollection<string> pagesQueue, string keyword, SemaphoreSlim concurrencySemaphore, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        string currentUrl = null;
+        string result = null;
+
+        if (pagesQueue.Count > 0)
+        {
+            concurrencySemaphore.Wait();
+            currentUrl = pagesQueue.Take();
+
+            try
+            {
+                result = await DownloadWebPage(currentUrl);
+                if (result != null)
+                {
+                    AddInnerLinks(result, pagesQueue);
+                    CustomConsole.PrintSearchResults(currentUrl, FindKeyword(result, keyword));
                 }
                 else
                 {
-                    Console.WriteLine("Wrong url. Try again");
+                    CustomConsole.WriteLine($"Page loading failed: {currentUrl}");
                 }
-                Console.WriteLine("Enter url or print 'exit' to finish");
-                entredString = Console.ReadLine();
             }
-            cts.Cancel();
-            Console.WriteLine("Search stopped");
-            Console.ReadLine();
-        }
-    }
-
-    static void StartSearch(ConcurrentQueue<string> pagesQueue, string keyword, SemaphoreSlim concurrencySemaphore, CancellationToken cancellationToken)
-    {
-        // only one thread is working instead of MAX_CONCURRENT_TASK
-
-        // at the beginning only one url exists in queue, but StartSerach is called recursively, blocks 6 threads with no work, 6 threads are not released
-        concurrencySemaphore.Wait(); 
-        string currentUrl = null;
-        
-        if (pagesQueue.Count > 0) //no release if queue is empty
-        {
-            
-            //do we need new Task here?
-            Task.Factory.StartNew(() =>
+            catch (Exception ex)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                string result = null;
-
-                //why not TryDequeue?
-                if (pagesQueue.TryPeek(out currentUrl) && currentUrl != null)
-                {
-                    pagesQueue.TryDequeue(out currentUrl);
-                    //why not async/await here? Task.Result - bad practice
-                    result = DownloadWebPage(currentUrl).Result;
-                }
-                return result;
-            }, cancellationToken).ContinueWith(task =>
+                Console.WriteLine(ex.Message);
+            }
+            finally
             {
-                //!task.IsFaulted not checked
-                AddInnerLinks(task.Result, pagesQueue);
-                CompletedDownloadPage(task, currentUrl, keyword);
-                //thread is not released if the first tasks faulted
                 concurrencySemaphore.Release();
-            }, TaskContinuationOptions.NotOnCanceled)
-            .ContinueWith(task =>
-            {
-                Console.WriteLine("Request was canceled");
-            }, TaskContinuationOptions.OnlyOnCanceled);
+            }
         }
-        else
-        {
-            CustomConsole.WriteLine("Page queue is empty.");
-        }
-        //There is no need for infinit recursion. It creates deep call stack and can lead to stackoverflow
-        StartSearch(pagesQueue, keyword, concurrencySemaphore, cancellationToken);
     }
 
     static async Task<string> DownloadWebPage(string url)
@@ -109,6 +121,7 @@ class Program
         {
             string exeption = ex.InnerException?.Message ?? ex.Message;
             CustomConsole.WriteLine($"an error occured: {exeption}");
+
             throw ex;
         }
         return result;
@@ -120,23 +133,7 @@ class Program
         return data.Contains(keyword);
     }
 
-    static void CompletedDownloadPage(Task<string> task, string url, string keyword)
-    {
-        switch (task.Status)
-        {
-            case TaskStatus.RanToCompletion:
-                if (task.Result != null)
-                {
-                    CustomConsole.PrintSearchResults(url, FindKeyword(task.Result, keyword));
-                }
-                break;
-            case TaskStatus.Faulted:
-                CustomConsole.WriteLine($"Page loading failed: wrong url {url}");
-                break;
-        }
-    }
-
-    static void AddInnerLinks(string html, ConcurrentQueue<string> queue)
+    static void AddInnerLinks(string html, BlockingCollection<string> queue)
     {
         if (queue.Count < MAX_QUEUE_LENGTH && html != null)
         {
@@ -148,9 +145,7 @@ class Program
                 bool isValidLink = Uri.IsWellFormedUriString(url, UriKind.Absolute);
                 if (isValidLink && queue.All(item => item != url))
                 {
-                    // when new item is added to queue and if there is some free thread, it should start loading new page
-                    // pulse can be added to wakeup threads (Monitor.Wait/Pulse) or you can simply use BlockingCollection - implementation of the Producer-Consumer pattern
-                    queue.Enqueue(url);
+                    queue.Add(url);
                 };
             }
         }
@@ -176,12 +171,9 @@ class Program
             _reportQueue.Enqueue(new ResultItem(output, isFound));
             if (_reportQueue.Count > MAX_BUFFER_LENGTH)
             {
-                List<string> trueArray = (from item in _reportQueue
-                                          where item.IsKeywordFound
-                                          select item.Message).ToList();
-                List<string> falseArray = (from item in _reportQueue
-                                           where !item.IsKeywordFound
-                                           select item.Message).ToList();
+                List<string> trueArray = _reportQueue.Where(item => item.IsKeywordFound).Select(item => item.Message).ToList();
+                List<string> falseArray = _reportQueue.Where(item => !item.IsKeywordFound).Select(item => item.Message).ToList();
+
                 Console.WriteLine("Word found in pages:");
                 Print(trueArray);
                 Console.WriteLine("Word not found in pages:");

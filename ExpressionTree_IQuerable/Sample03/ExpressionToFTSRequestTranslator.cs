@@ -44,10 +44,7 @@ namespace Sample03
                 var value = node.Arguments[0];
                 var field = node.Object;
 
-                Visit(field);
-                resultString.Append("(*");
-                Visit(value);
-                resultString.Append("*)");
+                AddParamValue(field, value, "(*", "*)");
                 return node;
             }
 
@@ -56,10 +53,7 @@ namespace Sample03
                 var value = node.Arguments[0];
                 var field = node.Object;
 
-                Visit(field);
-                resultString.Append("(");
-                Visit(value);
-                resultString.Append("*)");
+                AddParamValue(field, value, "(", "*)");
                 return node;
             }
 
@@ -68,10 +62,7 @@ namespace Sample03
                 var value = node.Arguments[0];
                 var field = node.Object;
 
-                Visit(field);
-                resultString.Append("(*");
-                Visit(value);
-                resultString.Append(")");
+                AddParamValue(field, value, "(*", ")");
                 return node;
             }
 
@@ -85,17 +76,11 @@ namespace Sample03
                 case ExpressionType.Equal:
                     if (node.Left.NodeType == ExpressionType.MemberAccess && node.Right.NodeType == ExpressionType.Constant)
                     {
-                        Visit(node.Left);
-                        resultString.Append("(");
-                        Visit(node.Right);
-                        resultString.Append(")");
+                        AddParamValue(node.Left, node.Right, "(", ")");
                     }
                     if (node.Right.NodeType == ExpressionType.MemberAccess && node.Left.NodeType == ExpressionType.Constant)
                     {
-                        Visit(node.Right);
-                        resultString.Append("(");
-                        Visit(node.Left);
-                        resultString.Append(")");
+                        AddParamValue(node.Right, node.Left, "(", ")");
                     }
                     break;
                 case ExpressionType.AndAlso:
@@ -123,6 +108,14 @@ namespace Sample03
             resultString.Append(node.Value);
 
             return node;
+        }
+
+        private void AddParamValue(Expression fieldNode, Expression valueNode, string startSymbol, string endSymbol)
+        {
+            Visit(fieldNode);
+            resultString.Append(startSymbol);
+            Visit(valueNode);
+            resultString.Append(endSymbol);
         }
     }
 }

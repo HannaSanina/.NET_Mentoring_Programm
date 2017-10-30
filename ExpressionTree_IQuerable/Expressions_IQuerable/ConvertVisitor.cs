@@ -10,7 +10,7 @@ namespace Expressions_IQuerable
 {
     class ConvertVisitor : ExpressionVisitor
     {
-        public Expression Visit(Expression<Func<int, int, int,int>> exp, Dictionary<string, int> dict)
+        public Expression Visit(Expression exp, Dictionary<string, int> dict)
         {
             var lambda = GetLambda(exp);
             var replaced = Replace(lambda, dict);
@@ -19,7 +19,8 @@ namespace Expressions_IQuerable
 
         private Expression Replace(LambdaExpression lambda, Dictionary<string, int> arguments)
         {
-            var replacer = new ReplacerVisitor(lambda.Parameters, arguments);
+            var paramList = lambda.Parameters.Select(item => item.Name).ToList();
+            var replacer = new ReplacerVisitor(paramList, arguments);
             return replacer.Replace(lambda.Body);
         }
 

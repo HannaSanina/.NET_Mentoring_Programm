@@ -9,14 +9,17 @@ namespace Expressions_IQuerable
 {
     class ReplacerVisitor : ExpressionVisitor
     {
-        private Dictionary<ParameterExpression, int> _replacementList = new Dictionary<ParameterExpression, int>();
+        private Dictionary<string, int> _replacementList = new Dictionary<string, int>();
 
-        public ReplacerVisitor(IEnumerable<ParameterExpression> what, Dictionary<string, int> with)
+        public ReplacerVisitor(IEnumerable<string> what, Dictionary<string, int> with)
         {
             foreach (var item in what)
             {
-                var x = with.First(param => param.Key == item.Name).Value;
-                _replacementList.Add(item, x);
+                int value;
+                if (with.TryGetValue(item, out value))
+                {
+                    _replacementList.Add(item, value);
+                };
             }
         }
 
@@ -29,17 +32,9 @@ namespace Expressions_IQuerable
         protected override Expression VisitParameter(ParameterExpression node)
         {
             int value;
-            if (node.Name == "a")
+            if (_replacementList.TryGetValue(node.Name, out value))
             {
-                return _replacementList.TryGetValue(node, out value) ? Expression.Constant(value) : base.VisitParameter(node);
-            }
-            if (node.Name == "b")
-            {
-                return _replacementList.TryGetValue(node, out value) ? Expression.Constant(value) : base.VisitParameter(node);
-            }
-            if (node.Name == "c")
-            {
-                return _replacementList.TryGetValue(node, out value) ? Expression.Constant(value) : base.VisitParameter(node);
+                return Expression.Constant(value);
             }
 
             return base.VisitParameter(node);

@@ -139,7 +139,7 @@ namespace Sample03.E3SClient.Entities
 		string firstname { get; set; }
 
 		[JsonProperty]
-		string lastname { get; set; }
+		public string lastname { get; set; }
 
 		[JsonProperty]
 		List<string> fullname { get; set; }

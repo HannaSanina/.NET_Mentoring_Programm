@@ -14,10 +14,10 @@ namespace Expressions_IQuerable
     {
         private static void Main(string[] args)
         {
-            Dictionary<string, int> valueForReplace = new Dictionary<string, int> {{"a", 5}, {"b", 10}, {"c", -10}};
+            Dictionary<string, int> valueForReplace = new Dictionary<string, int> { { "a", 5 }, { "b", 10 }, { "c", -10 }, { "x", 1 }, { "d", 2 } };
 
             Expression<Func<int, int>> source = (a) => a - (1 + a + 1) * (a + 5 - 1) - (a - 1);
-            Expression<Func<int, int, int, int>> sourceReplace = (a, b, c) => c / a * b;
+            Expression<Func<int, int, int, int, int>> sourceReplace = (x, b, c, d) => c / x * b + d;
 
             var replaceResult = sourceReplace.Convert(valueForReplace);
             var transformResult = (new ExpressionTransformer().VisitAndConvert(source, ""));
@@ -33,7 +33,7 @@ namespace Expressions_IQuerable
 
     static class ExpressionExtender
     {
-        public static Expression Convert(this Expression<Func<int, int, int,int>> expression, Dictionary<string, int> dict)
+        public static Expression Convert(this Expression expression, Dictionary<string, int> dict)
         {
             return new ConvertVisitor().Visit(expression, dict);
         }

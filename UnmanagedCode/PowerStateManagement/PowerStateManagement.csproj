@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DllFunctionImporter.cs" />
+    <Compile Include="IFormatFunctions.cs" />
     <Compile Include="PowerManagement.cs" />
     <Compile Include="InformationLevel.cs" />
     <Compile Include="IPowerManagement.cs" />

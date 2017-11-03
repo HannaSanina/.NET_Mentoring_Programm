@@ -1,25 +1,17 @@
 set calc = CreateObject("PowerStateManagement.PowerManagement")
 
-res = calc.GetBatteryStateAsString()
+res = calc.GetLastSleepTime()
 
 WScript.Echo(res)
 
-res = calc.GetLastSleepTimeAsString()
+res = calc.GetLastWakeTime()
 
 WScript.Echo(res)
 
-res = calc.GetLastWakeTimeAsString()
+res = calc.ReserveHibernationFile()
 
 WScript.Echo(res)
 
-res = calc.GetPowerInformationAsString()
-
-WScript.Echo(res)
-
-res = calc.ReserveHibernationFileAsString()
-
-WScript.Echo(res)
-
-res = calc.DeleteHibernationFileAsString()
+res = calc.DeleteHibernationFile()
 
 WScript.Echo(res)

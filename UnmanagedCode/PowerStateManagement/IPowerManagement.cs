@@ -7,20 +7,12 @@ namespace PowerStateManagement
     [InterfaceType(ComInterfaceType.InterfaceIsDual)]
     public interface IPowerManagement
     {
-        int GetLastSleepTime();
-        int GetLastWakeTime();
+        ulong GetLastSleepTime();
+        ulong GetLastWakeTime();
         SYSTEM_BATTERY_STATE GetBatteryState();
         SYSTEM_POWER_INFORMATION GetPowerInformation();
         bool ReserveHibernationFile();
         bool DeleteHibernationFile();
         void Sleep();
-
-        string GetLastSleepTimeAsString();
-        string GetLastWakeTimeAsString();
-        string GetBatteryStateAsString();
-        string GetPowerInformationAsString();
-        string ReserveHibernationFileAsString();
-        string DeleteHibernationFileAsString();
-
     }
 }

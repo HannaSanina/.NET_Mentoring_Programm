@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,166 +12,128 @@ namespace PowerStateManagement
     [ComVisible(true)]
     [Guid("8E2C74B2-8B52-4C12-8FCF-23F86DE02EE4")]
     [ClassInterface(ClassInterfaceType.None)]
-    public class PowerManagement : IPowerManagement
+    public class PowerManagement : IPowerManagement, IFormatFunctions
     {
-        [DllImport("Powrprof.dll", SetLastError = true)]
-        static extern bool SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
 
-        [DllImport("powrprof.dll", SetLastError = true)]
-        static extern uint CallNtPowerInformation(int InformationLevel, IntPtr lpInputBuffer, int nInputBufferSize, [Out]  SYSTEM_POWER_INFORMATION[] lpOutputBuffer, int nOutputBufferSize);
-
-        [DllImport("powrprof.dll", SetLastError = true)]
-        static extern uint CallNtPowerInformation(int InformationLevel, IntPtr lpInputBuffer, int nInputBufferSize, [Out]  SYSTEM_BATTERY_STATE[] lpOutputBuffer, int nOutputBufferSize);
-
-        [DllImport("powrprof.dll", SetLastError = true)]
-        static extern uint CallNtPowerInformation(int InformationLevel, IntPtr lpInputBuffer, int nInputBufferSize, [Out]  uint[] lpOutputBuffer, int nOutputBufferSize);
-
-        [DllImport("powrprof.dll", SetLastError = true)]
-        static extern uint CallNtPowerInformation(int InformationLevel, bool lpInputBuffer, int nInputBufferSize, [Out]  uint[] lpOutputBuffer, int nOutputBufferSize);
-
-
-        public int GetLastSleepTime()
+        public ulong GetLastSleepTime()
         {
-            int sleepTime = 0;
-            int procCount = Environment.ProcessorCount;
-            uint[] procInfo = new uint[procCount];
-            uint retval = CallNtPowerInformation(
+            ulong time;
+            uint retval = DllFunctionImporter.GetTime(
                 InformationLevel.LastSleepTime,
                 IntPtr.Zero,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(uint))
+                out time,
+                Marshal.SizeOf(typeof(ulong))
             );
 
-            if (retval == 0)
-            {
-                sleepTime = Convert.ToInt32(procInfo[0] * 100 / 1000000000);
-            }
+            HandleException(retval, InformationLevel.LastSleepTime);
 
-            return sleepTime;
+            return time * 100 / 1000000000; //function return value in units by 100 nanoseconds in each
         }
 
-        public int GetLastWakeTime()
+        public ulong GetLastWakeTime()
         {
-            int awakeTime = 0;
-            int procCount = Environment.ProcessorCount;
-            uint[] procInfo = new uint[procCount];
-            uint retval = CallNtPowerInformation(
+            ulong time;
+            uint retval = DllFunctionImporter.GetTime(
                 InformationLevel.LastWakeTime,
                 IntPtr.Zero,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(uint))
+                out time,
+                Marshal.SizeOf(typeof(ulong))
             );
 
-            if (retval == 0)
-            {
-                awakeTime = Convert.ToInt32(procInfo[0] * 100 / 1000000000);
-            }
-
-            return awakeTime;
+            HandleException(retval, InformationLevel.LastWakeTime);
+           
+            return time * 100 / 1000000000; //function return value in units by 100 nanoseconds in each;
         }
 
         public SYSTEM_BATTERY_STATE GetBatteryState()
         {
-            SYSTEM_BATTERY_STATE result;
-            int procCount = Environment.ProcessorCount;
-            SYSTEM_BATTERY_STATE[] procInfo = new SYSTEM_BATTERY_STATE[procCount];
-            uint retval = CallNtPowerInformation(
+            SYSTEM_BATTERY_STATE batteryState = new SYSTEM_BATTERY_STATE();
+            uint retval = DllFunctionImporter.GetBatteryState(
                 InformationLevel.SystemBatteryState,
                 IntPtr.Zero,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(SYSTEM_BATTERY_STATE))
+                out batteryState,
+                Marshal.SizeOf(typeof(SYSTEM_BATTERY_STATE))
             );
-            if (retval == 0)
-            {
-                result = procInfo[0];
-            }
-            else
-            {
-                throw new Exception("Can't get battery state");
-            }
-            return result;
+            HandleException(retval, InformationLevel.SystemBatteryState);
+
+            return batteryState;
         }
 
         public SYSTEM_POWER_INFORMATION GetPowerInformation()
         {
-            SYSTEM_POWER_INFORMATION result;
-            int procCount = Environment.ProcessorCount;
-            SYSTEM_POWER_INFORMATION[] procInfo = new SYSTEM_POWER_INFORMATION[procCount];
-            uint retval = CallNtPowerInformation(
+            SYSTEM_POWER_INFORMATION systemInfo = new SYSTEM_POWER_INFORMATION();
+            uint retval = DllFunctionImporter.GetSystemPowerInfo(
                 InformationLevel.SystemPowerInformation,
                 IntPtr.Zero,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(SYSTEM_POWER_INFORMATION))
+                out systemInfo,
+                Marshal.SizeOf(typeof(SYSTEM_POWER_INFORMATION))
             );
-            if (retval == 0)
-            {
-                result = procInfo[0];
-            }
-            else
-            {
-                throw new Exception("Can't get power information");
-            }
-            return result;
+
+            HandleException(retval, InformationLevel.SystemPowerInformation);
+
+            return systemInfo;
         }
 
         public bool ReserveHibernationFile()
         {
             bool isSuccess = false;
-            int procCount = Environment.ProcessorCount;
-            uint[] procInfo = new uint[procCount];
-            uint retval = CallNtPowerInformation(
+
+            uint retval = DllFunctionImporter.ChangeHibernateFile(
                 InformationLevel.SystemReserveHiberFile,
                 true,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(uint))
+                out isSuccess,
+                Marshal.SizeOf(typeof(bool))
             );
 
-            if (retval == 0)
-            {
-                isSuccess = true;
-            }
+            HandleException(retval, InformationLevel.SystemReserveHiberFile);
+
             return isSuccess;
         }
 
         public bool DeleteHibernationFile()
         {
             bool isSuccess = false;
-            int procCount = Environment.ProcessorCount;
-            uint[] procInfo = new uint[procCount];
-            uint retval = CallNtPowerInformation(
+
+            uint retval = DllFunctionImporter.ChangeHibernateFile(
                 InformationLevel.SystemReserveHiberFile,
                 false,
                 0,
-                procInfo,
-                procInfo.Length * Marshal.SizeOf(typeof(uint))
+                out isSuccess,
+                Marshal.SizeOf(typeof(bool))
             );
 
-            if (retval == 0)
-            {
-                isSuccess = true;
-            }
+            HandleException(retval, InformationLevel.SystemReserveHiberFile);
+
             return isSuccess;
         }
 
         public void Sleep()
         {
-            SetSuspendState(true, false, false);
+            DllFunctionImporter.SetSuspendState(true, false, false);
+        }
+
+        private void HandleException(uint isFunctionSuccess, int fuctionCode)
+        {
+            if (isFunctionSuccess != 0)
+            {
+                throw new Win32Exception($"Execution failed. Error in function {fuctionCode}");
+            }
         }
 
         public string GetLastSleepTimeAsString()
         {
-           int result = GetLastSleepTime();
+           ulong result = GetLastSleepTime();
            return $"Last sleep time {result} seconds";
         }
 
         public string GetLastWakeTimeAsString()
         {
-            int result = GetLastWakeTime();
+            ulong result = GetLastWakeTime();
             return $"Last wake time {result} seconds";
         }
 

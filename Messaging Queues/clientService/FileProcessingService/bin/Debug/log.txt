@@ -1,0 +1,213 @@
+2017/11/15 12:46:45.139 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 12:46:45.139 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 12:46:46.616 Starting up as a console application 
+2017/11/15 12:46:48.038 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 12:49:15.235 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 12:49:15.235 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 12:49:16.576 Starting up as a console application 
+2017/11/15 12:49:16.576 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 12:56:34.853 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 12:56:34.853 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 12:56:36.264 Starting up as a console application 
+2017/11/15 12:56:36.264 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 12:59:00.561 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 12:59:00.561 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 12:59:02.069 Starting up as a console application 
+2017/11/15 12:59:02.069 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 13:06:25.131 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 13:06:25.131 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 13:06:27.037 Starting up as a console application 
+2017/11/15 13:06:27.037 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 13:07:40.771 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 13:07:40.771 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 13:07:42.367 Starting up as a console application 
+2017/11/15 13:09:28.483 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 13:09:28.483 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 13:09:29.907 Starting up as a console application 
+2017/11/15 13:11:50.796 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 13:11:50.796 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 13:11:52.242 Starting up as a console application 
+2017/11/15 13:11:52.244 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 16:57:27.608 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 16:57:27.628 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 16:57:31.767 Running as a console application, creating the console host. 
+2017/11/15 16:57:31.782 Starting up as a console application 
+2017/11/15 16:57:31.782 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 16:58:38.637 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 16:58:38.655 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 17:00:51.304 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 17:00:51.334 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 17:01:05.731 Running as a console application, creating the console host. 
+2017/11/15 17:01:05.731 Starting up as a console application 
+2017/11/15 17:01:05.746 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 17:43:10.768 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 17:43:10.792 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 17:43:14.280 Running as a console application, creating the console host. 
+2017/11/15 17:43:14.331 Starting up as a console application 
+2017/11/15 17:43:14.331 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 17:44:40.780 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 17:44:40.808 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 17:44:44.754 Running as a console application, creating the console host. 
+2017/11/15 17:44:44.814 Starting up as a console application 
+2017/11/15 17:51:39.244 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 18:22:56.849 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 18:22:56.866 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 18:22:59.637 Running as a console application, creating the console host. 
+2017/11/15 18:22:59.651 Starting up as a console application 
+2017/11/15 18:22:59.692 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 18:35:51.656 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 18:35:51.673 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 18:35:53.851 Running as a console application, creating the console host. 
+2017/11/15 18:35:53.868 Starting up as a console application 
+2017/11/15 18:35:53.868 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 18:39:01.672 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 18:39:01.689 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 18:39:03.460 Running as a console application, creating the console host. 
+2017/11/15 18:39:03.460 Starting up as a console application 
+2017/11/15 18:39:03.475 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/15 18:56:42.196 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/15 18:56:42.213 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/15 18:56:44.364 Running as a console application, creating the console host. 
+2017/11/15 18:56:44.376 Starting up as a console application 
+2017/11/15 18:56:44.382 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 04:26:14.180 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 04:26:14.197 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 04:26:17.421 Running as a console application, creating the console host. 
+2017/11/16 04:26:17.471 Starting up as a console application 
+2017/11/16 04:26:17.506 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 04:40:20.490 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 04:40:20.507 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 04:40:22.813 Running as a console application, creating the console host. 
+2017/11/16 04:40:22.835 Starting up as a console application 
+2017/11/16 04:40:22.835 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 04:44:57.488 The service threw an unhandled exception System.OutOfMemoryException: Out of memory.
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at System.Drawing.Image.FromFile(String filename)
+   at ScanerProcessingService.ImageService.CheckBarcode(String fileName)
+   at ScanerProcessingService.ImageService.NewFileCreated(Object sender, FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.OnCreated(FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.NotifyFileSystemEventArgs(Int32 action, String name)
+   at System.IO.FileSystemWatcher.CompletionStatusChanged(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* overlappedPointer)
+   at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+2017/11/16 04:59:00.355 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 04:59:00.379 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 05:00:18.598 Running as a console application, creating the console host. 
+2017/11/16 05:00:18.608 Starting up as a console application 
+2017/11/16 05:00:25.101 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 05:05:54.339 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 05:05:54.356 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 05:07:33.089 Running as a console application, creating the console host. 
+2017/11/16 05:07:33.101 Starting up as a console application 
+2017/11/16 05:07:33.101 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 05:20:44.729 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 05:20:44.745 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 05:20:53.258 Running as a console application, creating the console host. 
+2017/11/16 05:20:53.269 Starting up as a console application 
+2017/11/16 05:20:55.104 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 05:53:08.866 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 05:53:08.884 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 09:57:00.483 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 09:57:00.623 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 09:57:07.409 Started by the Windows services process 
+2017/11/16 09:57:07.409 Running as a service, creating service host. 
+2017/11/16 09:57:07.534 Starting as a Windows service 
+2017/11/16 09:57:07.565 [Topshelf] Starting up as a windows service application 
+2017/11/16 09:57:07.581 [Topshelf] Starting 
+2017/11/16 09:57:07.581 [Topshelf] Current Directory: D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug 
+2017/11/16 09:57:07.581 [Topshelf] Arguments:  
+2017/11/16 09:57:07.627 [Topshelf] Started 
+2017/11/16 11:05:35.049 The service threw an unhandled exception 40400: Endpoint not found., Resource:sb://demohanna.servicebus.windows.net/servicestatus. TrackingId:2b860797-09ed-46a9-9151-b9dadf408484_G14, SystemTracker:demohanna.servicebus.windows.net:ServiceStatus, Timestamp:11/16/2017 8:05:35 AM
+2017/11/16 11:59:47.694 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 11:59:47.711 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 12:00:04.019 Running as a console application, creating the console host. 
+2017/11/16 12:00:04.019 Starting up as a console application 
+2017/11/16 12:00:04.036 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 12:40:29.701 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 12:40:29.719 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 12:40:56.744 Running as a console application, creating the console host. 
+2017/11/16 12:40:56.744 Starting up as a console application 
+2017/11/16 12:41:00.755 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 12:45:32.895 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 12:45:32.912 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 12:45:37.686 Running as a console application, creating the console host. 
+2017/11/16 12:45:37.698 Starting up as a console application 
+2017/11/16 12:45:37.707 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 12:52:01.959 The service threw an unhandled exception System.IO.FileNotFoundException: image_0_bar - Copy.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at System.Drawing.Image.FromFile(String filename)
+   at ScanerProcessingService.ImageService.CheckBarcode(String fileName) in D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\ImageService.cs:line 127
+   at ScanerProcessingService.ImageService.ProcessDirectory(IEnumerable`1 files) in D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\ImageService.cs:line 65
+   at ScanerProcessingService.ImageService.NewFileCreated(Object sender, FileSystemEventArgs e) in D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\ImageService.cs:line 87
+   at System.IO.FileSystemWatcher.OnCreated(FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.NotifyFileSystemEventArgs(Int32 action, String name)
+   at System.IO.FileSystemWatcher.CompletionStatusChanged(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* overlappedPointer)
+   at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+2017/11/16 12:53:50.409 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 12:53:50.425 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 12:53:53.619 Running as a console application, creating the console host. 
+2017/11/16 12:53:53.631 Starting up as a console application 
+2017/11/16 12:53:53.646 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:00:21.818 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:00:21.838 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:00:28.949 Running as a console application, creating the console host. 
+2017/11/16 13:00:28.965 Starting up as a console application 
+2017/11/16 13:00:28.965 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:05:28.202 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:05:28.217 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:05:29.355 Running as a console application, creating the console host. 
+2017/11/16 13:05:29.420 Starting up as a console application 
+2017/11/16 13:05:29.456 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:09:58.663 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:09:58.680 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:09:59.378 Running as a console application, creating the console host. 
+2017/11/16 13:09:59.392 Starting up as a console application 
+2017/11/16 13:09:59.392 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:19:40.570 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:19:40.587 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:19:41.287 Running as a console application, creating the console host. 
+2017/11/16 13:19:41.297 Starting up as a console application 
+2017/11/16 13:19:41.297 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:23:43.711 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:23:43.726 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:23:44.617 Running as a console application, creating the console host. 
+2017/11/16 13:23:44.629 Starting up as a console application 
+2017/11/16 13:23:44.629 The ScanerProcessingService service is now running, press Control+C to exit. 
+2017/11/16 13:30:56.113 Configuration Result:
+[Success] Name ScanerProcessingService, [Success] ServiceName ScanerProcessingService 
+2017/11/16 13:30:56.131 Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000 
+2017/11/16 13:30:57.993 Running as a console application, creating the console host. 
+2017/11/16 13:30:58.024 Starting up as a console application 
+2017/11/16 13:30:58.024 The ScanerProcessingService service is now running, press Control+C to exit. 

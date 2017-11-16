@@ -1,0 +1,128 @@
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\FileProcessingService.exe.config
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.Rendering.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\PdfSharp.Charting.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\PdfSharp.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.Rendering.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\PdfSharp.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\PdfSharp.Charting.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\de\MigraDoc.DocumentObjectModel.resources.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\de\MigraDoc.Rendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\de\MigraDoc.RtfRendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\de\PdfSharp.resources.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\bin\Debug\de\PdfSharp.Charting.resources.dll
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\obj\Debug\ScanerProcessingService.csprojResolveAssemblyReference.cache
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\obj\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Q&A\FileProcessingService\obj\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\FileProcessingService.exe.config
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\obj\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\obj\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.Rendering.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\PdfSharp.Charting.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\PdfSharp.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.Rendering.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\PdfSharp.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\PdfSharp.Charting.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\de\MigraDoc.DocumentObjectModel.resources.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\de\MigraDoc.Rendering.resources.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\de\MigraDoc.RtfRendering.resources.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\de\PdfSharp.resources.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\bin\Debug\de\PdfSharp.Charting.resources.dll
+D:\work\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\obj\Debug\ScanerProcessingService.csprojResolveAssemblyReference.cache
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\FileProcessingService.exe.config
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\Microsoft.ServiceBus.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.Rendering.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\PdfSharp.Charting.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\PdfSharp.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\Microsoft.ServiceBus.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.Rendering.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\PdfSharp.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\PdfSharp.Charting.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\de\MigraDoc.DocumentObjectModel.resources.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\de\MigraDoc.Rendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\de\MigraDoc.RtfRendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\de\PdfSharp.resources.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\bin\Debug\de\PdfSharp.Charting.resources.dll
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\obj\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\obj\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\Samples\FileProcessingService\obj\Debug\ScanerProcessingService.csprojResolveAssemblyReference.cache
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\FileProcessingService.exe.config
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\obj\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\obj\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\obj\Debug\ScanerProcessingService.csprojResolveAssemblyReference.cache
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\FileProcessingService.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\FileProcessingService.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\Microsoft.ServiceBus.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.Rendering.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\PdfSharp.Charting.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\PdfSharp.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\Microsoft.ServiceBus.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.DocumentObjectModel.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.Rendering.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\MigraDoc.RtfRendering.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\PdfSharp.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\PdfSharp.Charting.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\de\MigraDoc.DocumentObjectModel.resources.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\de\MigraDoc.Rendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\de\MigraDoc.RtfRendering.resources.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\de\PdfSharp.resources.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\clientService\FileProcessingService\bin\Debug\de\PdfSharp.Charting.resources.dll

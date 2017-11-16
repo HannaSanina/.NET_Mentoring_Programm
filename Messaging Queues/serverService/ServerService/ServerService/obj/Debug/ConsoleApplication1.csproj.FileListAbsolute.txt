@@ -1,0 +1,5 @@
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

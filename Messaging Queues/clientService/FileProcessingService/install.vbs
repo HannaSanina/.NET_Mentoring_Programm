@@ -1,0 +1,5 @@
+Set fso = CreateObject("Scripting.FileSystemObject")
+path=fso.GetAbsolutePathName("ScanerProcessingService.exe")
+set wmi = GetObject("winmgmts:\\.\root\CIMV2") 
+set service = wmi.Get("Win32_Service")
+result = service.Create("ScanerProcessingService", "ScanerProcessingService", path)

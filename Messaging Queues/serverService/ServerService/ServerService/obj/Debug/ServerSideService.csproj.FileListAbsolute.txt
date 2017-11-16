@@ -1,0 +1,64 @@
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\Microsoft.ServiceBus.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\Microsoft.ServiceBus.xml
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\CsvHelper.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\CsvHelper.xml
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Samples\ConsoleApplication1\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\bin\Debug\ConsoleApplication1.exe.config
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\obj\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\obj\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\ConsoleApplication1.exe.config
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\obj\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\obj\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\CsvHelper.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\Microsoft.ServiceBus.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\CsvHelper.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\Microsoft.ServiceBus.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\bin\Debug\zxing.presentation.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ConsoleApplication1\ServerService\obj\Debug\ServerSideService.csprojResolveAssemblyReference.cache
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\ConsoleApplication1.exe.config
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\obj\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\obj\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\ConsoleApplication1.exe
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\ConsoleApplication1.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\CsvHelper.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\Microsoft.ServiceBus.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\Topshelf.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\Topshelf.NLog.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.presentation.dll
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\CsvHelper.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\Microsoft.ServiceBus.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\NLog.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.xml
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.presentation.pdb
+D:\work\.NET_Mentoring_Programm\Messaging Queues\serverService\ServerService\ServerService\bin\Debug\zxing.presentation.xml

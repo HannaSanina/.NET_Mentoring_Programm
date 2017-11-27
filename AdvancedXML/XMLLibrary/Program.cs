@@ -25,6 +25,8 @@ namespace XMLLibrary
         public static void ValidateFile(string inputXml)
         {
             XmlReaderSettings settings = new XmlReaderSettings();
+            XmlDocument document = new XmlDocument();
+            ValidationEventHandler eventHandler = ValidationEventHandler;
 
             settings.Schemas.Add("http://library.by/catalog", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "books.xsd"));
             settings.ValidationEventHandler +=
@@ -35,9 +37,10 @@ namespace XMLLibrary
 
             settings.ValidationFlags = settings.ValidationFlags | XmlSchemaValidationFlags.ReportValidationWarnings;
             settings.ValidationType = ValidationType.Schema;
-            XmlReader reader = XmlReader.Create(inputXml, settings);
 
-            while (reader.Read()) ;
+            XmlReader reader = XmlReader.Create(inputXml, settings);
+            document.Load(reader);
+            document.Validate(eventHandler);
         }
 
         public static void TrasformToRss(string inputXml)
@@ -45,7 +48,8 @@ namespace XMLLibrary
             XslCompiledTransform xsl = new XslCompiledTransform();
             XPathDocument xpathdocument = new XPathDocument(inputXml);
             XmlTextWriter writer = new XmlTextWriter("result.txt", Encoding.Unicode);
-            xsl.Load("transformRSS.xslt");
+            XsltSettings settings = new XsltSettings(false, true);
+            xsl.Load("transformRSS.xslt", settings, new XmlUrlResolver());
             writer.Formatting = Formatting.Indented;
             xsl.Transform(xpathdocument, null, writer, null);
         }
@@ -61,5 +65,18 @@ namespace XMLLibrary
             xsl.Transform(xpathdocument, null, writer, null);
         }
 
+        static void ValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            switch (e.Severity)
+            {
+                case XmlSeverityType.Error:
+                    Console.WriteLine("Error: {0}", e.Message);
+                    break;
+                case XmlSeverityType.Warning:
+                    Console.WriteLine("Warning {0}", e.Message);
+                    break;
+            }
+
+        }
     }
 }

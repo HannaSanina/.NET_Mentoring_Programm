@@ -21,13 +21,6 @@
       <div>
         <xsl:value-of select="cs:datenow()"/>
       </div>
-      <!--<xsl:variable name="gen">
-        <xsl:for-each select="book/genre[not(.=preceding::*)]">
-            <xsl:value-of select="."/>
-         
-        </xsl:for-each>
-      </xsl:variable>
-<xsl:variable name="x" select="$gen"></xsl:variable>-->
 
       <br></br>
       COMPUTER GENRE

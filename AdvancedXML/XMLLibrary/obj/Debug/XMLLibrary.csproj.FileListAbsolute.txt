@@ -1,0 +1,12 @@
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\bin\Debug\XMLLibrary.exe.config
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\bin\Debug\XMLLibrary.exe
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\bin\Debug\XMLLibrary.pdb
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\obj\Debug\XMLLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\obj\Debug\XMLLibrary.exe
+C:\Users\Hanna_Sanina\Desktop\Samples\XMLLibrary\obj\Debug\XMLLibrary.pdb
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\bin\Debug\XMLLibrary.exe.config
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\obj\Debug\XMLLibrary.exe
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\obj\Debug\XMLLibrary.pdb
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\bin\Debug\XMLLibrary.exe
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\bin\Debug\XMLLibrary.pdb
+D:\work\.NET_Mentoring_Programm\AdvancedXML\XMLLibrary\obj\Debug\XMLLibrary.csprojResolveAssemblyReference.cache

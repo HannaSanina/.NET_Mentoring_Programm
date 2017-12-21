@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Diagnostics.Backends.Tracing</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend">
+      <summary>
+            Logging back-end that uses <see cref="T:System.Diagnostics.Tracing.EventSource" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.
+            </summary>
+      <param name="eventSource">The <see cref="T:System.Diagnostics.Tracing.EventSource" /> to which events will be written.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.
+            </summary>
+      <returns>A new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Creates <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for the given role and type.
+            </summary>
+      <param name="parent">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>parent</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="type">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>type</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource">
+      <summary>
+            The <see cref="T:System.Diagnostics.Tracing.EventSource" /> to which events will be written.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions">
+      <summary>
+            Gets the options.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options">
+      <summary>
+            Gets the back-end options.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions.LogLevelIgnoredForSystemRecords">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions.LogLevelIgnoredForSystemRecords</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource" />.
+            </summary>
+      <param name="parent">The parent <see cref="T:PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" />.</param>
+      <param name="type">The <see cref="T:System.Type" /> being logged.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)">
+      <summary>
+            Checks whether logging is enabled in the back-end for the given level.
+            </summary>
+      <param name="level">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>level</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder.#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder" />/
+            </summary>
+      <param name="backend">The parent <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder.AppendProlog">
+      <summary>
+            Appends the indent string, context description, and the record kind to the current <see cref="P:PostSharp.Patterns.Diagnostics.RecordBuilders.TextLogRecordBuilder.StringBuilder" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder.EmitRecord">
+      <summary>
+            Emits the record. Invoked by the <see cref="M:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.Complete" /> method.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder.Write(PostSharp.Patterns.Formatters.UnsafeString)">
+      <summary>
+            Writes the final message to the back-end.
+            </summary>
+      <param name="message">The final message.</param>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource">
+      <summary>
+            The <see cref="N:PostSharp.Patterns.Diagnostics.Backends.EventSource" /> targeted by <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)">
+      <summary>
+            Checks whether logging for the given level is enabled.
+            </summary>
+      <param name="level">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>level</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)">
+      <summary>
+            Emits a log record.
+            </summary>
+      <param name="logLevel">Log level.</param>
+      <param name="recordKind">Record kind.</param>
+      <param name="type">Full name of the type emitting the record.</param>
+      <param name="contextDescription">Context description.</param>
+      <param name="message">Message.</param>
+      <param name="indentLevel">Indentation level.</param>
+      <param name="role">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>role</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.AsyncMethodAwait">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.AsyncMethodAwait</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.AsyncMethodResume">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.AsyncMethodResume</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityEntry">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityEntry</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityException">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityException</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityFailure">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityFailure</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivitySuccess">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivitySuccess</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomCritical">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomCritical</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomError">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomError</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomInfo">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomInfo</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomVerbose">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomVerbose</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomWarning">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomWarning</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.ExecutionPoint">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.ExecutionPoint</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.IteratorMoveNext">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.IteratorMoveNext</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.IteratorYield">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.IteratorYield</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodEntry">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodEntry</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodException">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodException</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodOvertime">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodOvertime</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodSuccess">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.MethodSuccess</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.ValueChanged">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.ValueChanged</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.CustomActivity">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.CustomActivity</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.Message">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.Message</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.Method">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Tasks.Method</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend">
+      <summary>
+            Logging back-end that logs using <see cref="T:System.Diagnostics.Trace" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.CreateRecordBuilder">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.
+            </summary>
+      <returns>A new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Creates <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for the given role and type.
+            </summary>
+      <param name="parent">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>parent</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="type">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>type</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.GetTextBackendOptions">
+      <summary>
+            Gets the options.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.GetTextBackendOptions</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.Options">
+      <summary>
+            Gets the back-end options.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackendOptions">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackendOptions" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackendOptions.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackendOptions" />.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource" />.
+            </summary>
+      <param name="parent">The parent <see cref="T:PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" />.</param>
+      <param name="type">The <see cref="T:System.Type" /> being logged.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)">
+      <summary>
+            Checks whether logging is enabled in the back-end for the given level.
+            </summary>
+      <param name="level">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>level</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder.#ctor(PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder" />.
+            </summary>
+      <param name="backend">The parent <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend" />.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder.EmitRecord">
+      <summary>
+            Emits the record. Invoked by the <see cref="M:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.Complete" /> method.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder.Write(PostSharp.Patterns.Formatters.UnsafeString)">
+      <summary>
+            Writes the final message to the back-end.
+            </summary>
+      <param name="message">The final message.</param>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend">
+      <summary>
+            Logging back-end that logs using <see cref="N:PostSharp.Patterns.Diagnostics.Backends.TraceSource" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.
+            </summary>
+      <returns>A new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Creates <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for the given role and type.
+            </summary>
+      <param name="parent">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>parent</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="type">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>type</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions">
+      <summary>
+            Gets the options.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(System.String)">
+      <summary>
+            Gets a <see cref="T:System.Diagnostics.TraceSource" /> of a given name.
+            </summary>
+      <param name="name">The name of the <see cref="T:System.Diagnostics.TraceSource" />.</param>
+      <returns>A <see cref="T:System.Diagnostics.TraceSource" /> named <paramref name="name" />. Two calls of this methods
+            are guaranteed to return the same instance, unless the previous instance has been garbage collected in the meantime.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options">
+      <summary>
+            Gets the back-end options.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions.GetTraceSourceName">
+      <summary>
+            Function mapping an <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions" /> to the name of a <see cref="T:System.Diagnostics.TraceSource" />.
+            The default behavior is to return <c>typeSource.Role</c>.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource" />.
+            </summary>
+      <param name="parent">The parent <see cref="T:PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" />.</param>
+      <param name="type">The <see cref="T:System.Type" /> being logged.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)">
+      <summary>
+            Checks whether logging is enabled in the back-end for the given level.
+            </summary>
+      <param name="level">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>level</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder">
+      <summary>
+        <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder.#ctor(PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder" />.
+            </summary>
+      <param name="backend">The parent <see cref="T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" />.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder.EmitRecord">
+      <summary>
+            Emits the record. Invoked by the <see cref="M:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.Complete" /> method.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder.Write(PostSharp.Patterns.Formatters.UnsafeString)">
+      <summary>
+            Writes the final message to the back-end.
+            </summary>
+      <param name="message">The final message.</param>
+    </member>
+  </members>
+</doc>

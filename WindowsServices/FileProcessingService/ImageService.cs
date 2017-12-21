@@ -9,24 +9,28 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FileProcessingService;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
+using PostSharp.Patterns.Diagnostics;
 using ZXing;
 
 namespace ScanerProcessingService
 {
-    class ImageService
+    class ImageService : IImageService
     {
         private readonly FileSystemWatcher watcher;
         private string inDir;
         private string outDir;
         private ConcurrentQueue<string> filesList;
         private CancellationToken _cancellationToken;
+        static readonly Logger logger = Logger.GetLogger();
 
         public ImageService(string inDir, string outDir)
         {
             this.inDir = inDir;
             this.outDir = outDir;
+            logger.Write(LogLevel.Info, "{Time} ImageService was created with {Input}, {Output}", DateTime.Now, this.inDir, this.outDir);
 
             if (!Directory.Exists(inDir))
                 Directory.CreateDirectory(inDir);
@@ -41,10 +45,12 @@ namespace ScanerProcessingService
 
         public void ProcessDirectory(IEnumerable<string> filesArray)
         {
+            var activity = logger.OpenActivity("{Time} Processing directory ", DateTime.Now);
             _cancellationToken.ThrowIfCancellationRequested();
             var document = new Document();
             var section = document.AddSection();
 
+            activity.Write(LogLevel.Info, "{Time} Working with a {Count} files.", DateTime.Now, filesArray.Count());
             foreach (var file in filesArray)
             {
                 var img = section.AddImage(file);
@@ -57,12 +63,15 @@ namespace ScanerProcessingService
             var render = new PdfDocumentRenderer { Document = document };
 
             render.RenderDocument();
+            activity.SetSuccess("{Time} Success. Rendered PDF doc.", DateTime.Now);
+            _cancellationToken.ThrowIfCancellationRequested();
             var path = Path.Combine(outDir, $"result{Guid.NewGuid()}.pdf");
             render.Save(path);
         }
 
         private void NewFileCreated(object sender, FileSystemEventArgs e)
         {
+            logger.Write(LogLevel.Info, "{Time} NewFileCreated was created", DateTime.Now);
             _cancellationToken.ThrowIfCancellationRequested();
             bool isBarcode = CheckBarcode(e.Name);
 
@@ -78,8 +87,9 @@ namespace ScanerProcessingService
             }
         }
 
-        private bool CheckBarcode(string fileName)
+        public bool CheckBarcode(string fileName)
         {
+            logger.Write(LogLevel.Info, "{Time} CheckBarcode was invoked", DateTime.Now);
             var reader = new BarcodeReader() { AutoRotate = true };
             var bmp = (Bitmap)Image.FromFile(fileName);
             var result = reader.Decode(bmp);

@@ -1,0 +1,4 @@
+C:\ProgramData\PostSharp\5.0.41\bin.Release\PostSharp.Compiler.Engine.dll
+C:\!WORK\.NET_Mentoring_Programm\WindowsServices\FileProcessingService\postsharp.config
+C:\!WORK\.NET_Mentoring_Programm\WindowsServices\packages\PostSharp.Patterns.Diagnostics.5.0.41\tools\PostSharp.Patterns.Diagnostics.Weaver.dll
+C:\!WORK\.NET_Mentoring_Programm\WindowsServices\packages\PostSharp.Patterns.Common.5.0.41\tools\PostSharp.Patterns.Common.Weaver.dll
